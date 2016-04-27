@@ -112,6 +112,8 @@ public class MiniCalculator extends AppCompatActivity implements View.OnClickLis
                     }
                 }
                 doubleinput = false; // 결과값을 처음에 숫자만 친거처럼 설정합니다 만약 5.0 에서 숫자를 더쓰면 5.01 이렇게 입력됩니다
+
+                //결과값을 전 엑티비티로 전달해주기위해서 인텐트를 생성 결과값을 저장하고 보내준후 엑티비티를 종료합니다.
                 Intent intent = new Intent();
                 intent.putExtra("result", str);
                 setResult(Activity.RESULT_OK, intent);

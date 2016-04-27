@@ -69,6 +69,7 @@ public class Tipcalculator extends AppCompatActivity {
                 }
         );
         g = (RadioGroup) findViewById(R.id.rg1);
+
         g.setOnCheckedChangeListener(
                 new RadioGroup.OnCheckedChangeListener() {
                     @Override

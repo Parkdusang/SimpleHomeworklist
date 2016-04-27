@@ -25,17 +25,15 @@ public class ListActivity extends AppCompatActivity {
         list.add(new MyCustomDTO("TipCalculator", "Information TipCalculator", R.drawable.tip));
         list.add(new MyCustomDTO("Mini-calculator", "Information Calculator", R.drawable.calculator));
         list.add(new MyCustomDTO("Change Password", "Change Password Activity", R.drawable.pwd));
-
-
         listView = (ListView) findViewById(R.id.listView);
 
+        // 내가 새로 지정할 listview 에 위에있는 list의 값을 지정하고 선언해줍니다.
         MyCustomAdapter adapter =
                 new MyCustomAdapter(
                         getApplicationContext(),
                         R.layout.list_row,
                         list);
         listView.setAdapter(adapter);
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

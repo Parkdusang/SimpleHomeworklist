@@ -21,7 +21,6 @@ public class MyCustomAdapter extends BaseAdapter {
         this.ctx = ctx;
         this.layout = layout;
         this.list = list;
-
         inf = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 

@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
         e3 = (EditText) findViewById(R.id.edt3);
         e4 = (EditText) findViewById(R.id.edt4);
 
+
         e1.addTextChangedListener(this);
         e2.addTextChangedListener(this);
         e3.addTextChangedListener(this);
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
                 //입력한 비밀번호와 pwd가 일치하면 listActivity로 넘어갑니다.
                 if (checkpwd.equals(pwd)) {
                     Intent intent = new Intent(getApplicationContext(), ListActivity.class);
+
                     startActivity(intent);
                 }
                 //틀렸다면 토스트를 하나 띄워줍니다.
@@ -72,6 +74,12 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
     @Override
     public void onTextChanged(CharSequence s, int start, int before, int count) {
 
+
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
+        String text1;
         if (e1.getText().length() == 1) {
             e2.requestFocus();
             // 이전의 Edittext가 입력되있으면 다음으로 포커스가 넘어가는식입니다
@@ -80,6 +88,7 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
                 if (e3.getText().length() == 1) {
                     e4.requestFocus();
                     if (e4.getText().length() == 1) {
+                        //4개의 포커스가 모두 입력되면 비밀번호와 비교하기 위해 저장합니다.
                         checkpwd = "";
                         checkpwd += e1.getText().toString();
                         checkpwd += e2.getText().toString();
@@ -94,12 +103,6 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
 
 
         }
-
-    }
-
-    @Override
-    public void afterTextChanged(Editable s) {
-
     }
 
     //비밀번호 변경후 바로 로그인 화면으로 돌아갈시 바뀐비밀번호를 재지정 해줍니다.
@@ -108,6 +111,5 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
         super.onRestart();
         sh_Pref = getSharedPreferences("Login Credentials", MODE_PRIVATE);
         pwd = sh_Pref.getString("Password", "0000");
-
     }
 }

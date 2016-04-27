@@ -45,7 +45,8 @@
             android:maxLength="1"
             android:gravity="center"
             android:text=""
-            android:inputType="numberPassword"/>
+            android:password="true"
+            android:inputType="number"/>
         <EditText
             android:layout_margin="5dp"
             android:layout_weight="1"
